@@ -12,7 +12,7 @@ Simple Examples
 
 Fade an LED on pin 3 up in 3 seconds.
 
-```arduino
+```cpp
 // Create new LED Fader on pin 3
 LEDFader led = LEDFader(3);
 
@@ -29,7 +29,7 @@ void loop() {
 
 Building on that example, we can alternate by fading up and down
 
-```arduino
+```cpp
 
 // Create new LED Fader on pin 3
 LEDFader led = LEDFader(3);
@@ -61,7 +61,7 @@ Multiple LEDs or RGB
 
 This example will fade 6 LEDs, all to random PWM values and durations. You could, instead, replace 6 LEDs with 2 RGB LEDs.
 
-```arduino
+```cpp
 #define LED_NUM = 6
 
 // 6 LEDs (perhaps 2 RGB LEDs)
