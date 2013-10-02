@@ -1,4 +1,4 @@
-Arduino -- Background LED Fading Library
+Background LED Fading Library for Arduino
 ========================================
 
 This arduino library can fade individual LEDs in the background without blocking your main program.
