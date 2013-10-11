@@ -15,6 +15,7 @@
 #define MIN_INTERVAL 20
 
 class LEDFader {
+  uint8_t pin;
   unsigned long last_step_time;
   unsigned int interval;
   uint8_t color;
@@ -23,10 +24,13 @@ class LEDFader {
   float percent_done;
 
   public:
-    uint8_t pin;
 
     // Create a new LED Fader for a pin
-    LEDFader(uint8_t pwm_pin);
+    LEDFader(uint8_t pwm_pin=0);
+
+    // Set the PWM pin that the LED is connected to
+    void set_pin(uint8_t pwm_pin);
+    uint8_t get_pin();
 
     // Set an LED to an absolute PWM value
     void set_value(int pwm);
