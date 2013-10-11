@@ -7,12 +7,25 @@ Instead of using a for loop and `delay` to fade an LED from one PWM value to ano
 
 For example, to fade from 0 - 200 in 1 second, it would increment the PWM value by 1 every 50 milliseconds -- without stopping your program while it waits. There are also other optimizations to make the animations smooth and accurate without eating too many chip resources.
 
+Install
+-------
+Move the arduino-LEDFader folder into the [arduino library directory](http://arduino.cc/en/Guide/Libraries) and rename it from `arduino-LEDFader` to `LEDFader`.
+
+Then in your sketch you just need to add this to the top of your file:
+
+```cpp
+#include <LEDFader.h>
+```
+
+
 Simple Examples
 ---------------
 
 Fade an LED on pin 3 up in 3 seconds.
 
 ```cpp
+#include <LEDFader.h>
+
 // Create new LED Fader on pin 3
 LEDFader led = LEDFader(3);
 
@@ -30,6 +43,7 @@ void loop() {
 Building on that example, we can alternate by fading up and down
 
 ```cpp
+#include <LEDFader.h>
 
 // Create new LED Fader on pin 3
 LEDFader led = LEDFader(3);
@@ -62,7 +76,9 @@ Multiple LEDs or RGB
 This example will fade 6 LEDs, all to random PWM values and durations. You could, instead, replace 6 LEDs with 2 RGB LEDs.
 
 ```cpp
-#define LED_NUM = 6
+#include <LEDFader.h>
+
+#define LED_NUM 6
 
 // 6 LEDs (perhaps 2 RGB LEDs)
 LEDFader leds[LED_NUM] = {
@@ -72,7 +88,7 @@ LEDFader leds[LED_NUM] = {
   LEDFader(9),
   LEDFader(10),
   LEDFader(11)
-}
+};
 
 void setup() {
 }

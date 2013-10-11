@@ -1,4 +1,4 @@
-include <LEDFader>
+#include <LEDFader.h>
 
 /*
   Fades a single LED up and down using LED Fader.
