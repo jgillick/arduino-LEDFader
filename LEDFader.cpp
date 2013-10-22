@@ -15,6 +15,7 @@ LEDFader::LEDFader(uint8_t pwm_pin) {
   interval = 0;
   duration = 0;
   percent_done = 0;
+  curve = (curve_function)0;
 }
 
 void LEDFader::set_pin(uint8_t pwm_pin) {
@@ -28,11 +29,24 @@ uint8_t LEDFader::get_pin(){
 void LEDFader::set_value(int value) {
   if (!pin) return;
   color = (uint8_t)constrain(value, 0, 255);
+  if (curve)
+   analogWrite(pin, curve(color));
+  else
   analogWrite(pin, color);
 }
 
 uint8_t LEDFader::get_value() {
   return color;
+}
+    
+// Set curve to transform output
+void LEDFader::set_curve(curve_function c) {
+ curve = c;
+}
+
+// Get the current curve function pointer
+LEDFader::curve_function LEDFader::get_curve() {
+ return curve;
 }
 
 void LEDFader::slower(int by) {
