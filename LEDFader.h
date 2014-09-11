@@ -15,6 +15,10 @@
 #define MIN_INTERVAL 20
 
 class LEDFader {
+public:
+  // Who likes dealing with function pointers? (Ok, I do, but no one else does)
+  typedef uint8_t (*curve_function)(uint8_t);
+private:
   uint8_t pin;
   unsigned long last_step_time;
   unsigned int interval;
@@ -22,6 +26,7 @@ class LEDFader {
   uint8_t to_color;
   unsigned int duration;
   float percent_done;
+  curve_function curve;
 
   public:
 
@@ -37,6 +42,12 @@ class LEDFader {
 
     // Get the current LED PWM value
     uint8_t get_value();
+    
+    // Set curve to transform output
+    void set_curve(curve_function);
+    
+    // Get the current curve function pointer
+    curve_function get_curve();
 
     // Fade an LED to a PWM value over a duration of time (milliseconds)
     void fade(uint8_t pwm, unsigned int time);
