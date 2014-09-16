@@ -33,7 +33,7 @@ uint8_t Curve::exponential(uint8_t i) {
  //return !i ? 0 : round(exp(log(MAXOUTPUT) * i / MAXINPUT));
  
  // Need to read the table in a special way!
- return pgm_read_byte(&table[i]);
+ return pgm_read_byte(&etable[i]);
 }
 
 uint8_t Curve::linear(uint8_t i) {
