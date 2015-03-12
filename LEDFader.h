@@ -42,6 +42,9 @@ private:
 
     // Get the current LED PWM value
     uint8_t get_value();
+
+    // Get the PWM value we're fading to
+    uint8_t get_target_value();
     
     // Set curve to transform output
     void set_curve(curve_function);
@@ -51,6 +54,7 @@ private:
 
     // Fade an LED to a PWM value over a duration of time (milliseconds)
     void fade(uint8_t pwm, unsigned int time);
+
 
     // Returns TRUE if there is an active fade process
     bool is_fading();

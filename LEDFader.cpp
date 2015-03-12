@@ -38,6 +38,10 @@ void LEDFader::set_value(int value) {
 uint8_t LEDFader::get_value() {
   return color;
 }
+
+uint8_t LEDFader::get_target_value() {
+  return to_color;
+}
     
 // Set curve to transform output
 void LEDFader::set_curve(curve_function c) {
