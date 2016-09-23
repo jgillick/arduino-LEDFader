@@ -1,0 +1,32 @@
+#######################################
+# Syntax Coloring Map for OneButton
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+LEDFader	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+set_pin	KEYWORD2
+set_value	KEYWORD2
+get_value	KEYWORD2
+get_target_value	KEYWORD2
+set_curve	KEYWORD2
+get_curve	KEYWORD2
+fade	KEYWORD2
+is_fading	KEYWORD2
+stop_fade	KEYWORD2
+update	KEYWORD2
+slower	KEYWORD2
+faster	KEYWORD2
+get_progress	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
