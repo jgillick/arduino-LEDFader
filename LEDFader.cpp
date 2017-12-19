@@ -76,18 +76,21 @@ void LEDFader::faster(int by) {
 }
 
 void LEDFader::fade(uint8_t value, unsigned int time) {
-  stop_fade();
-  percent_done = 0;
-
-  // No pin defined
+  
+   // No pin defined
   if (!pin) {
     return;
   }
 
-  // Color hasn't changed
-  if (value == color) {
+  // Color hasn't changed or fader is fading to the requested value already
+  if (value == color || value == to_color) {
     return;
   }
+  
+  stop_fade();
+  percent_done = 0;
+
+ 
 
   if (time <= MIN_INTERVAL) {
     set_value(value);
