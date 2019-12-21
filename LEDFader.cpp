@@ -27,7 +27,6 @@ uint8_t LEDFader::get_pin(){
 
 
 void LEDFader::set_value(int value) {
-  if (!pin) return;
   color = (uint8_t)constrain(value, 0, 255);
   if (curve)
    analogWrite(pin, curve(color));
@@ -76,12 +75,6 @@ void LEDFader::faster(int by) {
 }
 
 void LEDFader::fade(uint8_t value, unsigned int time) {
-  
-   // No pin defined
-  if (!pin) {
-    return;
-  }
-
   // Color hasn't changed or fader is fading to the requested value already
   if (value == color || value == to_color) {
     return;
@@ -89,8 +82,6 @@ void LEDFader::fade(uint8_t value, unsigned int time) {
   
   stop_fade();
   percent_done = 0;
-
- 
 
   if (time <= MIN_INTERVAL) {
     set_value(value);
@@ -112,8 +103,6 @@ void LEDFader::fade(uint8_t value, unsigned int time) {
 }
 
 bool LEDFader::is_fading() {
-  if (!pin)
-    return false;
   if (duration > 0)
     return true;
   return false;
@@ -129,12 +118,6 @@ uint8_t LEDFader::get_progress() {
 }
 
 bool LEDFader::update() {
-
-  // No pin defined
-  if (!pin) {
-    return false;
-  }
-
   // No fade
   if (duration == 0) {
     return false;
